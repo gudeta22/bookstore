@@ -347,6 +347,7 @@ function Posts() {
                         src={selectedPost.image}
                         alt="Post Thumbnail"
                         className="w-full h-64 object-fit rounded-lg mb-4"
+                        name="image"
                       />
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">
                         {selectedPost.title}
@@ -439,14 +440,7 @@ function Posts() {
                       </button>
                     </div>
 
-                    <div className="p-4 h-96 overflow-y-auto">
-                      <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js`}>
-                        <Viewer
-                          fileUrl={selectedPost.pdf}
-                          plugins={[defaultLayoutPluginInstance]}
-                        />
-                      </Worker>
-                    </div>
+                   
                   </div>
                 </div>
               )}

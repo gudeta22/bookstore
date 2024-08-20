@@ -22,7 +22,7 @@ function Registration() {
   const [passwordStrength, setPasswordStrength] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrorMessage(""); // Clear error message on change

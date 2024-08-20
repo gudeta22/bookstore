@@ -54,11 +54,17 @@ function CreatePosts() {
         formDataToSend.append("pdf", formData.pdf);
       }
 
-      await axios.post(backendURL + API_ENDPOINTS.CREATE_POST, formDataToSend, {
+      // Debugging: Log the FormData to verify its contents
+      console.log("Submitting data:", formDataToSend);
+
+      const response = await axios.post(backendURL + API_ENDPOINTS.CREATE_POST, formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+
+      // Debugging: Log the response
+      console.log("Response:", response);
 
       setFormData({
         title: "",
@@ -75,7 +81,8 @@ function CreatePosts() {
         setSuccess(false);
       }, 3000);
     } catch (error) {
-      console.error("Error submitting post:", error);
+      // Enhanced error handling
+      console.error("Error submitting post:", error.response ? error.response.data : error.message);
     } finally {
       setLoading(false);
     }
