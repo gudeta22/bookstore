@@ -1,148 +1,85 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 function Landingpage() {
   return (
-    <div className="">
-     <div class="min-h-[500px] bg-blue-100 px-4 sm:px-10">
-      <div class="max-w-7xl w-full mx-auto py-16">
-        <div class="grid lg:grid-cols-2 justify-center items-center gap-10">
-          <div>
-            <h1 class="md:text-5xl text-4xl font-extrabold mb-6 md:!leading-[55px]">Let's Explore Books and Read For the Future of our Country
-            </h1>
-            <p class="text-base leading-relaxed">Unlock the potential of your business with advanced analysis tools
-              that provide insightful strategies. Our cutting-edge analytics empower you to make informed decisions and
-              strategically scale your business.</p>
-            <div class="flex flex-wrap gap-y-4 gap-x-8 mt-8">
-              <button
-                class='bg-[#333] hover:bg-[#111] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4'>Get
-                started
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2"
-                  viewBox="0 0 492.004 492.004">
-                  <path
-                    d="M484.14 226.886 306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
-                    data-original="#000000" />
-                </svg>
-              </button>
-              <button
-                class='bg-transparent border-2 border-[#333] flex items-center transition-all font-semibold rounded-md px-5 py-2'>
-                API documentation
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2"
-                  viewBox="0 0 492.004 492.004">
-                  <path
-                    d="M484.14 226.886 306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
-                    data-original="#000000" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="max-lg:mt-12 h-full">
-            <img src="https://readymadeui.com/analtsis.webp" alt="banner img" class="w-full h-full object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-      <div class="px-4 sm:px-10 mt-28">
-        <div class="max-w-7xl w-full mx-auto grid md:grid-cols-2 justify-center items-center gap-10">
-          <div>
-            <h2 class="md:text-4xl text-3xl font-extrabold mb-6">100% Secure your data</h2>
-            <p>Veniam proident aute magna anim excepteur et ex consectetur velit ullamco veniam minim
-              aute sit. Elit occaecat officia et laboris Lorem minim. Officia do aliqua adipisicing ullamco in. consectetur
-              velit ullamco veniam minim aute sit.</p>
-            <button
-              class="bg-[#333] hover:bg-[#111] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4 mt-8">
-              Read more
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2" viewBox="0 0 492.004 492.004">
-                <path
-                  d="M484.14 226.886 306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
-                  data-original="#000000"></path>
+    <div class=" bg-gray-800">
+    <header class="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 text-blue-900 md:mx-auto md:flex-row md:items-center">
+      <a href="#" class="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-blue-500">
+        
+        <img src={logo} alt='logo' className='w-28 h-28' />
+      </a>
+      <input type="checkbox" class="peer hidden" id="navbar-open" />
+      <label class="absolute top-5 right-7 cursor-pointer md:hidden text-blue-600" for="navbar-open">
+        <span class="sr-only">Toggle Navigation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <nav aria-label="Header Navigation" class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
+        <ul class="flex flex-col items-center space-x-8 space-y-2 md:ml-auto md:flex-row md:space-y-0">
+          
+            <Link to='/login'>
+            <button class="rounded-full border-2 border-white px-6 py-1 font-medium text-white transition-colors hover:bg-white hover:text-gray-700">Login</button>
+            </Link>
+            <Link to='/register'>
+            <button class="rounded-full border-2 border-white px-6 py-1 font-medium text-white transition-colors hover:bg-white hover:text-gray-700">SignUp</button>
+            </Link>
+           
+          
+        </ul>
+      </nav>
+    </header>
+  
+    <div class="mx-auto h-full px-4 py-28 md:py-40 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+      <div class="flex flex-col items-center justify-between lg:flex-row">
+        <div class="">
+          <div class="lg:max-w-xl lg:pr-5">
+            <p class="flex text-sm uppercase text-gray-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 inline h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
               </svg>
-            </button>
+              An agency for high growth leaders
+            </p>
+            <h2 class="mb-6 max-w-lg text-5xl font-bold leading-snug tracking-tight text-white sm:text-7xl sm:leading-snug">
+              Reading  Make You
+              <span class="my-1 inline-block border-b-8 border-white bg-orange-400 px-4 font-bold text-white">different</span>
+            </h2>
+            <p class="text-base text-gray-400">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.</p>
           </div>
-          <div class="w-full h-full">
-            <img src="https://readymadeui.com/login-image.webp" alt="Feature" class="w-full h-full object-cover" />
+          <div class="mt-10 flex flex-col items-center md:flex-row">
+            <a href="/" class="mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-blue-700 px-6 font-medium tracking-wide text-white shadow-md transition md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-blue-800">Stream Now </a>
+            <a href="/" aria-label="" class="group inline-flex items-center font-semibold text-white"
+              >Watch how it works
+              <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:translate-x-2 ml-4 h-6 w-6 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
-      </div>
-
-      <div class="mt-28 px-4 sm:px-10 bg-blue-100">
-        <div
-          class="min-h-[400px] relative h-full max-w-2xl mx-auto flex flex-col justify-center items-center text-center px-6 py-16">
-          <h2 class="md:text-4xl text-3xl font-extrabold mb-6">Your work, everywhere you are</h2>
-          <p>Veniam proident aute magna anim excepteur et ex consectetur velit ullamco veniam minim
-            aute sit. Elit occaecat officia et laboris Lorem minim. Officia do aliqua adipisicing ullamco in. consectetur
-            velit ullamco veniam minim aute sit.</p>
-          <button
-            class="bg-[#333] hover:bg-[#111] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4 mt-8">
-            Get started
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2" viewBox="0 0 492.004 492.004">
-              <path
-                d="M484.14 226.886 306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
-                data-original="#000000"></path>
+        <div class="relative hidden lg:ml-32 lg:block lg:w-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto my-6 h-10 w-10 animate-bounce rounded-full bg-blue-50 p-2 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+          </svg>
+          <div class="abg-orange-400 w-fit rounded-[6rem] mx-auto overflow-hidden rounded-tl-none rounded-br-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute -left-10 -top-20 h-28 w-28 rounded-xl text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
             </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="px-4 sm:px-10 mt-28">
-        <div class="max-w-7xl mx-auto">
-          <div>
-            <h2 class="md:text-4xl text-3xl font-extrabold">Check our latest article</h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
-            <div class="cursor-pointer rounded overflow-hidden group">
-              <div>
-                <span class="block text-gray-400 mb-2">10 FEB 2023</span>
-                <h3 class="text-xl font-extrabold group-hover:text-blue-500 transition-all">A Guide to Igniting
-                  Your Imagination</h3>
-                <div class="mt-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan,
-                    nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-                </div>
-              </div>
-              <hr class="my-6" />
-              <div class="flex flex-wrap items-center gap-3">
-                <img src='https://readymadeui.com/team-1.webp' alt="John Doe" class="w-9 h-9 rounded-full" />
-                <p class="text-xs">BY JOHN DOE</p>
-              </div>
-            </div>
-            <div class="cursor-pointer rounded overflow-hidden group">
-              <div>
-                <span class="block text-gray-400 mb-2">7 JUN 2023</span>
-                <h3 class="text-xl font-extrabold group-hover:text-blue-500 transition-all">Hacks to Supercharge
-                  Your Day</h3>
-                <div class="mt-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan,
-                    nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-                </div>
-              </div>
-              <hr class="my-6" />
-              <div class="flex flex-wrap items-center gap-3">
-                <img src='https://readymadeui.com/team-2.webp' alt="Mark Adair" class="w-9 h-9 rounded-full" />
-                <p class="text-xs">BY MARK ADAIR</p>
-              </div>
-            </div>
-            <div class="cursor-pointer rounded overflow-hidden group">
-              <div>
-                <span class="block text-gray-400 mb-2">5 OCT 2023</span>
-                <h3 class="text-xl font-extrabold group-hover:text-blue-500 transition-all">Trends and Predictions
-                </h3>
-                <div class="mt-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan,
-                    nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-                </div>
-              </div>
-              <hr class="my-6" />
-              <div class="flex flex-wrap items-center gap-3">
-                <img src='https://readymadeui.com/team-3.webp' alt="Simon Konecki" class="w-9 h-9 rounded-full" />
-                <p class="text-xs">BY SIMON KONECKI</p>
-              </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 -bottom-20 h-28 w-28 rounded-xl text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+            </svg>
+            <div class="flex w-96 flex-wrap">
+              <div class="h-48 w-1/2 rounded-full rounded-br-none bg-red-400"></div>
+              <div class="rounded-[6rem] h-48 w-1/2 rounded-tl-none rounded-br-none bg-violet-400"></div>
+              <div class="h-48 w-1/2 rounded-full rounded-b-none rounded-br-none bg-yellow-400"></div>
+              <div class="h-48 w-1/2 rounded-full rounded-t-none rounded-br-none bg-indigo-600"></div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
+  </div>
+  
   );
 }
 

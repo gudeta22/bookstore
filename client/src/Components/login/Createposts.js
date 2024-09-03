@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import backendURL from "../../api/axios";
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
 const API_ENDPOINTS = {
@@ -234,17 +234,7 @@ function CreatePosts() {
           </button>
         </form>
 
-        {/* Display the uploaded PDF */}
-        {formData.pdf && (
-          <div className="mt-10 p-4 border rounded-lg bg-white shadow-md">
-            <h3 className="text-xl font-semibold mb-4">PDF Preview</h3>
-            <div className="pdf-viewer" style={{ height: '750px' }}>
-              <Worker workerUrl={`https://unpkg.com/pdfjs-dist@latest/build/pdf.worker.min.js`}>
-                <Viewer fileUrl={URL.createObjectURL(formData.pdf)} />
-              </Worker>
-            </div>
-          </div>
-        )}
+      
       </div>
     </div>
   );

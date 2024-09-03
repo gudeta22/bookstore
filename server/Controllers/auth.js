@@ -1,6 +1,7 @@
 import { db } from "../db.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import bcrypt from "bcryptjs";
 
 dotenv.config();
 
@@ -20,8 +21,6 @@ export const authenticateUser = (req, res, next) => {
   }
 };
 
-
-
 export const userLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -30,8 +29,8 @@ export const userLogin = async (req, res) => {
   }
 
   try {
-    const sql = `SELECT * FROM userRegisters WHERE email = ? AND password = ?`;
-    db.query(sql, [email, password], async (error, results) => {
+    const sql = `SELECT * FROM userRegisters WHERE email = ?`;
+    db.query(sql, [email], async (error, results) => {
       if (error) {
         console.error("Error executing the query:", error);
         return res.status(500).send("Internal Server Error");
@@ -42,8 +41,16 @@ export const userLogin = async (req, res) => {
       }
 
       const user = results[0];
+
+      // Compare the hashed password
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).send("Invalid email or password.");
+      }
+
+      // Generate a token
       const token = jwt.sign(
-        { userId: user.id, email: user.email, user: user.password },
+        { userId: user.id, email: user.email },
         process.env.SECRET_TOKEN,
         { expiresIn: "1h" }
       );

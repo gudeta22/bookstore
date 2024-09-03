@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from '../../assets/logo.png';
 import axios from "axios";
-import logo from '../../assets/logo.png'
-import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-import backendURL from "../../api/axios";
+import Navbar from "../Navbar/Navbar.js";
+import backendURL from "../../api/axios.js";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useSpring, animated } from "@react-spring/web";
 import { useAuth } from './AuthContext'; 
-import { useSpring, animated } from '@react-spring/web'; 
+
 const API_ENDPOINTS = {
-  Login: "/api/auth/login",
+  LOGIN: "/api/auth/login",
 };
 
 function Login() {
@@ -23,7 +24,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(backendURL + API_ENDPOINTS.Login, {
+      const response = await axios.post(backendURL + API_ENDPOINTS.LOGIN, {
         email,
         password,
       });
@@ -39,21 +40,18 @@ function Login() {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setError("");
-    setSuccess("");
+   
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setError("");
-    setSuccess("");
+   
   };
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  // Animations for success and error messages
   const successSpring = useSpring({
     opacity: success ? 1 : 0,
     transform: success ? 'scale(1)' : 'scale(0.5)',
@@ -69,16 +67,16 @@ function Login() {
   return (
     <>
       <Navbar />
-      <div className="font-[sans-serif] text-[#333] -my-10 relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-200 to-purple-300">
+      <div className="font-[sans-serif] text-[#333] -my-32 flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 h-screen">
         {error && (
           <animated.div
             style={errorSpring}
-            className="fixed top-8 left-1/2 transform -translate-x-1/2 -mx-32 bg-red-600 text-white text-lg px-6 py-3 rounded-md shadow-2xl z-50 flex items-center justify-center"
+            className="fixed top-16 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg"
           >
             {error}
           </animated.div>
         )}
-        {success && (
+{success && (
           <animated.div
             style={successSpring}
             className="fixed top-8 left-1/2 transform -mx-40 -translate-x-1/2 bg-gradient-to-r from-green-400 to-teal-500 text-white text-lg px-6 py-3 rounded-md shadow-2xl z-50 flex items-center justify-center"
@@ -104,69 +102,65 @@ function Login() {
             </div>
           </animated.div>
         )}
-        <div className="bg-white h-[44rem]  rounded-lg shadow-2xl p-10 max-w-lg -my-10 w-full mx-auto transform transition-transform duration-500">
-          <h3 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            <img src={logo} alt="logo" className="w-24 mx-40" />
+
+        <div className="bg-gray-900 h-[40rem] -my-32 justify-items-center rounded-lg shadow-2xl p-8 max-w-lg w-full mx-auto transform transition-transform duration-500">
+          <h3 className="text-4xl font-bold text-gray-800 mb-8">
+            <img src={logo} alt="logo" className="w-24 mx-auto" />
           </h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-6">
-              <label className="text-sm font-semibold text-gray-700 block mb-2">
+          <form onSubmit={handleSubmit} className="mb-10 flex flex-col items-center ">
+            <div className="mb-6 ">
+              <label className="text-sm font-semibold text-yellow-500 block mb-2">
                 Email
               </label>
               <input
+                name="email"
                 type="email"
+                required
                 value={email}
                 onChange={handleEmailChange}
-                required
-                className="w-full px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
+                className="w-[22rem] px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
                 placeholder="Enter your email"
               />
             </div>
             <div className="mb-6">
-              <label className="text-sm font-semibold text-gray-700 block mb-2">
+              <label className="text-sm font-semibold text-yellow-500 block mb-2">
                 Password
               </label>
               <div className="relative">
                 <input
+                  name="password"
                   type={showPassword ? "text" : "password"}
+                
                   value={password}
                   onChange={handlePasswordChange}
                   required
-                  className="w-full px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
+                  className="w-[22rem] px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={toggleShowPassword}
-                  className="absolute right-2 top-2 text-xl text-gray-500 hover:text-gray-700 transition duration-150"
+                  className="absolute -mx-7 top-2 text-xl text-gray-500 hover:text-gray-700 transition duration-150"
                 >
                   {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </button>
               </div>
             </div>
-            <div className="flex justify-between items-center mb-6">
-              <a
-                href="/forgot-password"
-                className="text-sm font-medium text-blue-600 hover:underline"
-              >
-                Forgot Password?
-              </a>
-            </div>
-            <div>
+            <div className="mt-8">
               <button
-                type="submit"
-                className="w-full py-3 px-6 bg-gradient-to-r  from-indigo-700 to-indigo-900 text-white font-bold rounded-md shadow-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
+              
+                className="w-[10rem] -mx-8 py-3 px-6 bg-yellow-600 text-white font-bold rounded-md shadow-lg hover:bg-yellow-700 transition-all duration-200"
               >
-                Sign In
+                Login
               </button>
+              <Link
+                to="/register"
+                className="block text-center text-blue-600 font-semibold mt-4 hover:underline"
+              >
+                Don't have an account? Register here
+              </Link>
             </div>
           </form>
-          <p className="mt-6 text-center text-sm text-gray-600">
-            Don’t have an account?{" "}
-            <a href="/register" className="text-blue-600 hover:underline">
-              Sign up here
-            </a>
-          </p>
         </div>
       </div>
     </>

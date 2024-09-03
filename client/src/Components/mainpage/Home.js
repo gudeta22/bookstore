@@ -1,15 +1,14 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
+
 import Landingpage from '../mainpage/Landingpage'
+import PostsDisplay from './PostsDisplay'
 
 
 function Home() {
   return (
     <div>
-        <Navbar />
         <Landingpage />
-        
-      
+        <PostsDisplay />
     </div>
   )
 }

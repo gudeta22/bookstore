@@ -101,6 +101,9 @@ function Registration() {
     }
   };
 
+  
+
+
   const successSpring = useSpring({
     opacity: registrationSuccess ? 1 : 0,
     transform: registrationSuccess ? "translateY(0)" : "translateY(-100px)",
@@ -115,14 +118,14 @@ function Registration() {
 
   return (
     <>
-      <Navbar className="fixed" />
-      <div className="font-[sans-serif]  text-[#333] -my-14  relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-200 to-purple-300">
+      <Navbar />
+      <div className="font-[sans-serif] text-[#333] -my-32 flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 h-screen">
         {registrationSuccess && (
           <animated.div
             style={successSpring}
-            className="fixed top-8 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-400 to-teal-500 text-white text-lg px-6 py-3 rounded-md shadow-2xl z-50 flex items-center justify-center"
+            className="fixed top-8 left-3/3 transform -translate-x-1/2 bg-green-500 from-green-400 to-teal-500 text-white text-xl rounded-md shadow-2xl z-50 flex items-center justify-center"
           >
-            <div className="flex items-center">
+            <div className="flex items-center my-10">
               <div className="animate-pulse">
                 <svg
                   className="w-6 h-6 mr-2"
@@ -146,18 +149,19 @@ function Registration() {
         {errorMessage && (
           <animated.p
             style={errorSpring}
-            className="fixed top-16 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg"
+            className="fixed top-16 left-3/3 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg"
           >
             {errorMessage}
           </animated.p>
         )}
-        <div className="bg-white h-[44rem]  rounded-lg shadow-2xl -my-14 p-8 max-w-lg w-full mx-auto transform transition-transform duration-500">
-           <h3 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            <img src={logo} alt="logo" className="w-24 mx-40" />
+
+        <div className="bg-gray-900 h-[40rem] text-yellow-600 rounded-lg shadow-2xl p-8 max-w-lg w-full mx-auto transform transition-transform duration-500">
+          <h3 className="text-4xl font-bold text-center text-gray-800 mb-8">
+            <img src={logo} alt="logo" className="w-24 mx-auto" />
           </h3>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="mb-10 flex flex-col items-center">
             <div className="mb-6">
-              <label className="text-sm font-semibold text-gray-700 block mb-2">
+              <label className="text-sm font-semibold  block mb-2">
                 Full Name
               </label>
               <input
@@ -166,12 +170,12 @@ function Registration() {
                 required
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
+                className="w-[22rem] px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
                 placeholder="Enter your full name"
               />
             </div>
             <div className="mb-6">
-              <label className="text-sm font-semibold text-gray-700 block mb-2">
+              <label className="text-sm font-semibold  block mb-2">
                 Email
               </label>
               <input
@@ -180,12 +184,12 @@ function Registration() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
+                className="w-[22rem] px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
                 placeholder="Enter your email"
               />
             </div>
             <div className="mb-6">
-              <label className="text-sm font-semibold text-gray-700 block mb-2">
+              <label className="text-sm font-semibold block mb-2">
                 Password
               </label>
               <div className="relative">
@@ -195,7 +199,7 @@ function Registration() {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
+                  className="w-[22rem] px-4 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-150"
                   placeholder="Enter your password"
                 />
                 <button
@@ -215,7 +219,7 @@ function Registration() {
             <div className="mt-8">
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-gradient-to-r  from-indigo-700 to-indigo-900 text-white font-bold rounded-md shadow-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
+                className="w-[10rem] -mx-8 py-3 px-6 bg-yellow-600 text-white font-bold rounded-md shadow-lg  hover:bg-yellow-700 transition-all duration-200"
               >
                 Register
               </button>

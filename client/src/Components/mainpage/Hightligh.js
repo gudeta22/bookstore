@@ -1,170 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
-import backendURL from "../../api/axios";
+import React from 'react'
 
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-
-const API_ENDPOINTS = {
-  VIEW_POSTS: "/api/posts/",
-  DELETE_POSTS: "/api/posts/delete",
-  UPDATE_POSTS: "/api/posts/update",
-};
-
-function Posts() {
-  const [posts, setPosts] = useState([]);
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
-  const [pdfFile, setPdfFile] = useState(null);
-  const [showFullDescription, setShowFullDescription] = useState(false);
-  const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    price: "",
-    content: "",
-    image: null,
-    pdf: null,
-  });
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
-  const modalRef = useRef(null);
-
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(`${backendURL}${API_ENDPOINTS.VIEW_POSTS}`);
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  const handleDeletePost = async (id) => {
-    try {
-      await axios.delete(`${backendURL}${API_ENDPOINTS.DELETE_POSTS}/${id}`);
-      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-      closeModal();
-    } catch (error) {
-      console.error("Error deleting post:", error);
-    }
-  };
-
-  const openModal = (post) => {
-    setSelectedPost(post);
-    setFormData({
-      title: post.title,
-      author: post.author,
-      price: post.price,
-      content: post.content || "",
-      image: post.image,
-      pdf: post.pdf || null,
-    });
-    setEditMode(false);
-  };
-
-  const closeModal = () => {
-    setSelectedPost(null);
-    setEditMode(false);
-    setShowFullDescription(false);
-    setIsPdfModalOpen(false);
-  };
-
-  const toggleEditMode = () => {
-    setEditMode(true);
-  };
-
-  const cancelEditMode = () => {
-    setFormData({
-      title: selectedPost.title,
-      author: selectedPost.author,
-      price: selectedPost.price,
-      content: selectedPost.content || "",
-      image: selectedPost.image,
-      pdf: selectedPost.pdf || null,
-    });
-    setEditMode(false);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "image") {
-      setImageFile(e.target.files[0]);
-    } else if (name === "pdf") {
-      setPdfFile(e.target.files[0]);
-    } else {
-      setFormData((prevData) => ({ ...prevData, [name]: value }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formDataToSend = new FormData();
-    if (imageFile) formDataToSend.append("image", imageFile);
-    if (pdfFile) formDataToSend.append("pdf", pdfFile);
-    formDataToSend.append("title", formData.title);
-    formDataToSend.append("author", formData.author);
-    formDataToSend.append("price", formData.price);
-    formDataToSend.append("content", formData.content || "");
-
-    try {
-      await axios.put(
-        `${backendURL}${API_ENDPOINTS.UPDATE_POSTS}/${selectedPost.id}`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      const response = await axios.get(`${backendURL}${API_ENDPOINTS.VIEW_POSTS}`);
-      setPosts(response.data);
-
-      closeModal();
-      setImageFile(null);
-      setPdfFile(null);
-
-    } catch (error) {
-      console.error("Error updating post:", error);
-    }
-  };
-
-  const toggleDescription = () => {
-    setShowFullDescription((prev) => !prev);
-  };
-
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const openPdfModal = () => {
-    setIsPdfModalOpen(true);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        closeModal();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
+function HIghtligh() {
   return (
-    <>
-      <div className="flex min-h-screen">
+    <div>
+         <div className="flex min-h-screen">
         <aside className="w-64 bg-gray-800 text-white flex-none p-4">
           <h2 className="text-xl font-semibold mb-4">Sidebar</h2>
         </aside>
@@ -172,13 +11,7 @@ function Posts() {
         <div className="flex-1 p-6 bg-gray-100">
           <div className="fixed w-[18rem] top-0 left-0 right-0 -mx-5 p-5 z-10 shadow-md">
             <div className="relative">
-              <input
-                type="text"
-                placeholder="Search by title..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-full shadow-md text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+            
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 <svg
                   className="w-5 h-5 text-gray-400"
@@ -448,8 +281,8 @@ function Posts() {
           )}
         </div>
       </div>
-    </>
-  );
+    </div>
+  )
 }
 
-export default Posts;
+export default HIghtligh
