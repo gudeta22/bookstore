@@ -3,7 +3,7 @@ import React from 'react'
 function footer() {
   return (
     <div>
-        <footer class="font-[sans-serif] bg-black p-10">
+        <footer class="font-[sans-serif] bg-gray-800 p-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8">
         <div class="xl:col-span-2">
           <a href='www.face.com'><img src="https://readymadeui.com/readymadeui-white.svg" alt="logo" class='w-48' /></a>

@@ -11,6 +11,7 @@ export const authenticateUser = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided." });
   }
+
   try {
     const decoded = jwt.verify(token, process.env.SECRET_TOKEN);
     req.user = decoded;
@@ -20,7 +21,6 @@ export const authenticateUser = (req, res, next) => {
     return res.status(403).json({ message: "Forbidden: Invalid token." });
   }
 };
-
 export const userLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -47,7 +47,6 @@ export const userLogin = async (req, res) => {
       if (!isMatch) {
         return res.status(401).send("Invalid email or password.");
       }
-
       // Generate a token
       const token = jwt.sign(
         { userId: user.id, email: user.email },
