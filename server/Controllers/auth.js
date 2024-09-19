@@ -11,7 +11,7 @@ export const authenticateUser = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided." });
   }
-
+ 
   try {
     const decoded = jwt.verify(token, process.env.SECRET_TOKEN);
     req.user = decoded;
@@ -41,7 +41,7 @@ export const userLogin = async (req, res) => {
       }
 
       const user = results[0];
-
+  
       // Compare the hashed password
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
@@ -59,7 +59,7 @@ export const userLogin = async (req, res) => {
         secure: true,
         sameSite: "strict",
       });
-
+           
       res.status(200).json({
         message: `Login successful ...Redirect`,
         email: user.email,

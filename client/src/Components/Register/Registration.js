@@ -35,6 +35,7 @@ function Registration() {
     setShowPassword(!showPassword);
   };
 
+
   const checkPasswordStrength = (password) => {
     let strength = "";
     if (password.length < 6) {
@@ -61,9 +62,10 @@ function Registration() {
 
     try {
       const response = await axios.post(backendURL + API_ENDPOINTS.REGISTER, {
-        fullName: formData.fullName,
+        fullName:formData.fullName,
         email: formData.email,
         password: formData.password,
+        
       });
 
       if (response && response.data) {

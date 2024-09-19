@@ -40,12 +40,10 @@ function Login() {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-   
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-   
   };
 
   const toggleShowPassword = () => {
@@ -71,12 +69,35 @@ function Login() {
         {error && (
           <animated.div
             style={errorSpring}
-            className="fixed top-16 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-md shadow-lg"
+            className="fixed top-16 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-md shadow-xl flex items-center justify-between w-[80%] sm:w-[40%] max-w-md z-50"
           >
-            {error}
+            <div className="flex items-center">
+              <svg
+                className="w-6 h-6 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M18.364 5.636a9 9 0 11-12.728 0 9 9 0 0112.728 0zM12 8v4m0 4h.01"
+                ></path>
+              </svg>
+              <span>{error}</span>
+            </div>
+            <button
+              onClick={() => setError("")}
+              className="text-lg font-bold ml-4 hover:text-gray-200 transition duration-150"
+            >
+              &times;
+            </button>
           </animated.div>
         )}
-{success && (
+
+        {success && (
           <animated.div
             style={successSpring}
             className="fixed top-8 left-1/2 transform -mx-40 -translate-x-1/2 bg-gradient-to-r from-green-400 to-teal-500 text-white text-lg px-6 py-3 rounded-md shadow-2xl z-50 flex items-center justify-center"
@@ -130,7 +151,6 @@ function Login() {
                 <input
                   name="password"
                   type={showPassword ? "text" : "password"}
-                
                   value={password}
                   onChange={handlePasswordChange}
                   required
@@ -148,7 +168,6 @@ function Login() {
             </div>
             <div className="mt-8">
               <button
-              
                 className="w-[10rem] -mx-8 py-3 px-6 bg-yellow-600 text-white font-bold rounded-md shadow-lg hover:bg-yellow-700 transition-all duration-200"
               >
                 Login

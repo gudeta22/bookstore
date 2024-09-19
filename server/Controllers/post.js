@@ -10,7 +10,7 @@ export const createPost = async (req, res) => {
   if (!title || !price || !author || !content || (!imageName && !pdf)) {
     return res.status(400).send("All inputs are required, including at least one file (image or PDF).");
   }
-
+  
   try {
     // Insert the post data into the database
     const sql = `INSERT INTO posts (image, pdf, title, author, price, content) VALUES (?, ?, ?, ?, ?, ?)`;
@@ -69,6 +69,7 @@ export const editPost = async (req, res) => {
   const { title, author, price } = req.body;
   const imageName = req.files?.image?.[0]?.filename;
  const pdf = req.files['pdf'] ? req.files['pdf'][0].filename : null;
+ 
 
   try {
     let sql = `UPDATE posts SET`;
