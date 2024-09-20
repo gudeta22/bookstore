@@ -17,7 +17,8 @@ function Nav() {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-
+        
+       
         if (response.ok) {
           const data = await response.json();
           setFullName(data.fullname);

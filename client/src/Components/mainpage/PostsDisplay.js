@@ -12,6 +12,7 @@ function Posts() {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+  
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,7 +41,7 @@ function Posts() {
     const handleMouseLeave = () => {
       isDragging.current = false;
     };
-
+     
     const handleMouseUp = () => {
       isDragging.current = false;
     };
@@ -58,6 +59,7 @@ function Posts() {
     container.addEventListener("mouseleave", handleMouseLeave);
     container.addEventListener("mouseup", handleMouseUp);
     container.addEventListener("mousemove", handleMouseMove);
+  
 
     // Cleanup event listeners on unmount
     return () => {

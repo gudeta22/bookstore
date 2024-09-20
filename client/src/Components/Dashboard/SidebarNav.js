@@ -24,7 +24,7 @@ function SidebarNav() {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-
+  
         if (response.ok) {
           const data = await response.json();
           setFullName(data.fullname);
@@ -106,7 +106,7 @@ function SidebarNav() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col  bg-gray-100">
+      <div className="flex-1 flex flex-col bg-gray-100">
         {/* Navigation Bar */}
         <header className="fixed w-full bg-white shadow-md z-50">
           <div className="flex items-center justify-between px-6 py-3">
