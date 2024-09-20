@@ -4,7 +4,7 @@ import { LogOut, Home, FilePlus, Eye } from "react-feather";
 import axios from "axios";
 import { FiBell } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
-import avatar from "../../assets/avater2.jpg";
+import avatar from "../../assets/avater2.jpg"; // Default avatar
 import backendURL from '../../api/axios';
 
 const API_ENDPOINTS = {
@@ -106,10 +106,10 @@ function SidebarNav() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col bg-gray-100">
+      <div className="flex-1 flex flex-col  bg-gray-100">
         {/* Navigation Bar */}
-        <header className="fixed w-[105rem] bg-white shadow-md z-50 hidden">
-          <div className="flex items-center justify-between px-6 py-3 lg:py-4 container mx-auto">
+        <header className="fixed w-full bg-white shadow-md z-50">
+          <div className="flex items-center justify-between px-6 py-3">
             {/* Right-side Icons and User Profile */}
             <div className="flex items-center space-x-6">
               {/* Notifications */}
@@ -120,9 +120,9 @@ function SidebarNav() {
 
               {/* User Profile */}
               <div className="relative group">
-                <div className="flex items-center space-x-2 cursor-pointer">
+                <div className="flex  space-x-2 cursor-pointer">
                   <img
-                    src={avatar}
+                    src={avatar} // Default avatar
                     alt="User avatar"
                     className="w-10 h-10 rounded-full border-2 border-indigo-600 shadow-md"
                   />

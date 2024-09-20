@@ -19,6 +19,7 @@ export const authenticateUser = (req, res, next) => {
   } catch (error) {
     console.error("Error verifying token:", error);
     return res.status(403).json({ message: "Forbidden: Invalid token." });
+    
   }
 };
 export const userLogin = async (req, res) => {
@@ -70,6 +71,7 @@ export const userLogin = async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+
 // export const getUserInfo = (req, res) => {
 //   const userId = req.user.userId;
 //   console.log(userId)

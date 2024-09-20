@@ -22,7 +22,7 @@ const checkIfUserExists = async (email) => {
 // User registration function
 export const userRegister = async (req, res) => {
   const { fullName, email, password } = req.body;
-
+    
   if (!email || !password || !fullName) {
     return res.status(400).send("Full name, email, and password are required.");
   }
@@ -33,7 +33,7 @@ export const userRegister = async (req, res) => {
     if (userExists) {
       return res.status(400).send("Email already exists. Please use a different email.");
     }
-
+     
     // Generate a salt and hash the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
