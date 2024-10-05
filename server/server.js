@@ -43,5 +43,7 @@ app.listen(PORT, () => {
       return;
     }
     console.log("Connected to the database.");
+
   });
+
 });

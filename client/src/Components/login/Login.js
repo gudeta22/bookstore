@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from '../../assets/logo.png';
+import logo from "../../assets/logo.png";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar.js";
 import backendURL from "../../api/axios.js";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useSpring, animated } from "@react-spring/web";
-import { useAuth } from './AuthContext'; 
+import { useAuth } from "./AuthContext";
 
 const API_ENDPOINTS = {
   LOGIN: "/api/auth/login",
@@ -18,7 +18,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { login } = useAuth(); 
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,7 +34,11 @@ function Login() {
         navigate("/dashboard");
       }, 1500);
     } catch (error) {
-      setError(error.response?.status === 401 ? "Invalid email or password" : "An error occurred. Please try again later.");
+      setError(
+        error.response?.status === 401
+          ? "Invalid email or password"
+          : "An error occurred. Please try again later."
+      );
     }
   };
 
@@ -52,7 +56,7 @@ function Login() {
 
   const successSpring = useSpring({
     opacity: success ? 1 : 0,
-    transform: success ? 'scale(1)' : 'scale(0.5)',
+    transform: success ? "scale(1)" : "scale(0.5)",
     config: { tension: 170, friction: 26 },
   });
 
@@ -128,7 +132,10 @@ function Login() {
           <h3 className="text-4xl font-bold text-gray-800 mb-8">
             <img src={logo} alt="logo" className="w-24 mx-auto" />
           </h3>
-          <form onSubmit={handleSubmit} className="mb-10 flex flex-col items-center ">
+          <form
+            onSubmit={handleSubmit}
+            className="mb-10 flex flex-col items-center "
+          >
             <div className="mb-6 ">
               <label className="text-sm font-semibold text-yellow-500 block mb-2">
                 Email
@@ -167,9 +174,7 @@ function Login() {
               </div>
             </div>
             <div className="mt-8">
-              <button
-                className="w-[10rem] -mx-8 py-3 px-6 bg-yellow-600 text-white font-bold rounded-md shadow-lg hover:bg-yellow-700 transition-all duration-200"
-              >
+              <button className="w-[10rem] -mx-8 py-3 px-6 bg-yellow-600 text-white font-bold rounded-md shadow-lg hover:bg-yellow-700 transition-all duration-200">
                 Login
               </button>
               <Link

@@ -62,7 +62,7 @@ function SidebarNav() {
   return (
     <div className="flex fixed h-screen">
       {/* Sidebar */}
-      <div className="h-full bg-gradient-to-b from-indigo-700 to-indigo-900 text-white w-64 flex flex-col shadow-xl">
+      <div className="h-full bg-gradient-to-b from-gray-800 to-gray-900 text-white w-64 flex flex-col shadow-xl">
         <div className="flex flex-col justify-between flex-grow">
           {/* Sidebar Header */}
           <div className="py-6 px-6">

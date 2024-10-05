@@ -11,7 +11,6 @@ export const authenticateUser = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided." });
   }
- 
   try {
     const decoded = jwt.verify(token, process.env.SECRET_TOKEN);
     req.user = decoded;
@@ -22,6 +21,8 @@ export const authenticateUser = (req, res, next) => {
     
   }
 };
+
+
 export const userLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -71,28 +72,6 @@ export const userLogin = async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 };
-
-// export const getUserInfo = (req, res) => {
-//   const userId = req.user.userId;
-//   console.log(userId)
-
-//   const sql = `SELECT fullName FROM userRegisters WHERE id = 30`;
-//   db.query(sql, [userId], (error, results) => {
-//     if (error) {
-//       console.error("Error fetching user info:", error);
-//       return res.status(500).send("Internal Server Error");
-//     }
-
-//     if (results.length === 0) {
-//       return res.status(404).send("User not found");
-//     }
-
-//     const user = results[0];
-//     res.status(200).json({ fullname: user.fullName });
-//   });
-// };
-
-
 export const userLogout = (req, res) => {
   res.clearCookie("token");
   res.status(200).send({ message: "Logout successful" });
